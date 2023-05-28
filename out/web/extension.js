@@ -1,11 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.activate = void 0;
+exports.deactivate = exports.activate = void 0;
 const vscode = require("vscode");
 /* const tokenTypes = ['function', 'variable'];
 const tokenModifiers = ['declaration'];
 const legend = new vscode.SemanticTokensLegend(tokenTypes, tokenModifiers); */
 function activate(context) {
+    console.log("Hello. I am working!");
     /* const provider1 = vscode.languages.registerCompletionItemProvider('plaintext', {
 
         provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
@@ -44,7 +45,7 @@ function activate(context) {
             ];
         }
     }); */
-    const letterI = vscode.languages.registerCompletionItemProvider({ language: 'rosemary', scheme: 'file' }, {
+    const letterI = vscode.languages.registerCompletionItemProvider({ language: 'rosemary' }, {
         provideCompletionItems(document, position) {
             return [
                 new vscode.CompletionItem('if', vscode.CompletionItemKind.Keyword),
@@ -55,7 +56,7 @@ function activate(context) {
             ];
         }
     }, 'i');
-    const letterF = vscode.languages.registerCompletionItemProvider({ language: 'rosemary', scheme: 'file' }, {
+    const letterF = vscode.languages.registerCompletionItemProvider({ language: 'rosemary' }, {
         provideCompletionItems(document, position) {
             return [
                 new vscode.CompletionItem('false', vscode.CompletionItemKind.Keyword),
@@ -65,21 +66,21 @@ function activate(context) {
             ];
         }
     }, 'f');
-    const letterW = vscode.languages.registerCompletionItemProvider({ language: 'rosemary', scheme: 'file' }, {
+    const letterW = vscode.languages.registerCompletionItemProvider({ language: 'rosemary' }, {
         provideCompletionItems(document, position) {
             return [
                 new vscode.CompletionItem('while', vscode.CompletionItemKind.Keyword),
             ];
         }
     }, 'w');
-    const letterP = vscode.languages.registerCompletionItemProvider({ language: 'rosemary', scheme: 'file' }, {
+    const letterP = vscode.languages.registerCompletionItemProvider({ language: 'rosemary' }, {
         provideCompletionItems(document, position) {
             return [
                 new vscode.CompletionItem('print', vscode.CompletionItemKind.Method),
             ];
         }
     }, 'p');
-    const letterS = vscode.languages.registerCompletionItemProvider({ language: 'rosemary', scheme: 'file' }, {
+    const letterS = vscode.languages.registerCompletionItemProvider({ language: 'rosemary' }, {
         provideCompletionItems(document, position) {
             return [
                 new vscode.CompletionItem('string', vscode.CompletionItemKind.Keyword),
@@ -87,7 +88,7 @@ function activate(context) {
             ];
         }
     }, 's');
-    const letterB = vscode.languages.registerCompletionItemProvider({ language: 'rosemary', scheme: 'file' }, {
+    const letterB = vscode.languages.registerCompletionItemProvider({ language: 'rosemary' }, {
         provideCompletionItems(document, position) {
             return [
                 new vscode.CompletionItem('bool', vscode.CompletionItemKind.Keyword),
@@ -95,14 +96,14 @@ function activate(context) {
             ];
         }
     }, 'b');
-    const letterT = vscode.languages.registerCompletionItemProvider({ language: 'rosemary', scheme: 'file' }, {
+    const letterT = vscode.languages.registerCompletionItemProvider({ language: 'rosemary' }, {
         provideCompletionItems(document, position) {
             return [
                 new vscode.CompletionItem('true', vscode.CompletionItemKind.Keyword),
             ];
         }
     }, 't');
-    const letterE = vscode.languages.registerCompletionItemProvider({ language: 'rosemary', scheme: 'file' }, {
+    const letterE = vscode.languages.registerCompletionItemProvider({ language: 'rosemary' }, {
         provideCompletionItems(document, position) {
             return [
                 new vscode.CompletionItem('elif', vscode.CompletionItemKind.Keyword),
@@ -111,7 +112,7 @@ function activate(context) {
             ];
         }
     }, 'e');
-    const letterL = vscode.languages.registerCompletionItemProvider({ language: 'rosemary', scheme: 'file' }, {
+    const letterL = vscode.languages.registerCompletionItemProvider({ language: 'rosemary' }, {
         provideCompletionItems(document, position) {
             return [
                 new vscode.CompletionItem('label', vscode.CompletionItemKind.Method),
@@ -119,14 +120,14 @@ function activate(context) {
             ];
         }
     }, 'l');
-    const letterR = vscode.languages.registerCompletionItemProvider({ language: 'rosemary', scheme: 'file' }, {
+    const letterR = vscode.languages.registerCompletionItemProvider({ language: 'rosemary' }, {
         provideCompletionItems(document, position) {
             return [
                 new vscode.CompletionItem('ret', vscode.CompletionItemKind.Method),
             ];
         }
     }, 'r');
-    const letterG = vscode.languages.registerCompletionItemProvider({ language: 'rosemary', scheme: 'file' }, {
+    const letterG = vscode.languages.registerCompletionItemProvider({ language: 'rosemary' }, {
         provideCompletionItems(document, position) {
             return [
                 new vscode.CompletionItem('goto', vscode.CompletionItemKind.Method),
@@ -153,7 +154,12 @@ exports.activate = activate;
     }
 };
 
-const selector = { language: 'rosemary', scheme: 'file' }; // register for all Java documents from the local file system
+const selector = { language: 'rosemary' }; // register for all Java documents from the local file system
 
-vscode.languages.registerDocumentSemanticTokensProvider(selector, provider, legend); */ 
+vscode.languages.registerDocumentSemanticTokensProvider(selector, provider, legend); */
+// This method is called when your extension is deactivated
+function deactivate() {
+    // Noop
+}
+exports.deactivate = deactivate;
 //# sourceMappingURL=extension.js.map

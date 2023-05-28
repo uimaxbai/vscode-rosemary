@@ -2,13 +2,13 @@
   "name": "rosemary",
   "displayName": "Rosemary",
   "description": "Syntax highlighting, auto-complete (IntelliSense)",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "license": "MIT",
   "publisher": "Rosemary",
   "icon": "images/icon.png",
   "repository": {
     "type": "git",
-		"url": "https://github.com/uimaxbai/vscode-rosemary"
+    "url": "https://github.com/uimaxbai/vscode-rosemary"
   },
   "engines": {
     "vscode": "^1.78.0"
@@ -17,43 +17,58 @@
     "Programming Languages"
   ],
   "activationEvents": [
-		"onStartupFinished"
-	],
+    "onStartupFinished"
+  ],
   "contributes": {
-    "languages": [{
-      "id": "rosemary",
-      "aliases": ["Rosemary", "rosemary"],
-      "extensions": [".rsmy",".rh"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "rosemary",
-      "scopeName": "source.rosemary",
-      "path": "./syntaxes/rosemary.tmLanguage.json"
-    }]
+    "languages": [
+      {
+        "id": "rosemary",
+        "aliases": [
+          "Rosemary",
+          "rosemary"
+        ],
+        "extensions": [
+          ".rsmy",
+          ".rh"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "rosemary",
+        "scopeName": "source.rosemary",
+        "path": "./syntaxes/rosemary.tmLanguage.json"
+      }
+    ]
   },
   "main": "./out/extension.js",
   "browser": "./dist/web/extension.js",
   "scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"lint": "eslint \"src/**/*.ts\"",
-		"watch": "tsc -watch -p ./",
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "lint": "eslint \"src/**/*.ts\"",
+    "watch": "tsc -watch -p ./",
     "compile-web": "webpack",
     "watch-web": "webpack --watch",
-    "package-web": "webpack --mode production --devtool hidden-source-map"
-	},
-	"devDependencies": {
-		"@types/node": "^16.11.7",
-		"@types/vscode": "^1.73.0",
-		"@typescript-eslint/eslint-plugin": "^5.42.0",
-		"@typescript-eslint/parser": "^5.42.0",
-		"eslint": "^8.26.0",
-		"typescript": "^5.0.2",
-    "ts-loader": "^9.2.2",
-    "webpack": "^5.38.1",
-    "webpack-cli": "^4.7.0",
+    "package-web": "webpack --mode production --devtool hidden-source-map",
+    "open-in-browser": "vscode-test-web --extensionDevelopmentPath=. ."
+  },
+  "devDependencies": {
+    "@vscode/test-web": "*",
+    "@types/node": "^16.11.7",
+    "@types/vscode": "^1.73.0",
     "@types/webpack-env": "^1.16.0",
-    "process": "^0.11.10"
-	}
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
+    "eslint": "^8.26.0",
+    "process": "^0.11.10",
+    "ts-loader": "^9.2.2",
+    "typescript": "^5.0.2",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.0"
+  },
+  "dependencies": {
+    "@vscode/test-web": "^0.0.43"
+  }
 }

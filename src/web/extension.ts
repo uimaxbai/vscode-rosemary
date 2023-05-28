@@ -5,7 +5,7 @@ const tokenModifiers = ['declaration'];
 const legend = new vscode.SemanticTokensLegend(tokenTypes, tokenModifiers); */
 
 export function activate(context: vscode.ExtensionContext) {
-
+	console.log("Hello. I am working!");
 	/* const provider1 = vscode.languages.registerCompletionItemProvider('plaintext', {
 
 		provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
@@ -46,7 +46,7 @@ export function activate(context: vscode.ExtensionContext) {
 	}); */
 
 	const letterI = vscode.languages.registerCompletionItemProvider(
-		{ language: 'rosemary', scheme: 'file' },
+		{ language: 'rosemary'},
 		{
 			provideCompletionItems(document: vscode.TextDocument, position: vscode.Position) {
 
@@ -64,7 +64,7 @@ export function activate(context: vscode.ExtensionContext) {
 		'i'
 	);
 	const letterF = vscode.languages.registerCompletionItemProvider(
-		{ language: 'rosemary', scheme: 'file' },
+		{ language: 'rosemary' },
 		{
 			provideCompletionItems(document: vscode.TextDocument, position: vscode.Position) {
 
@@ -81,7 +81,7 @@ export function activate(context: vscode.ExtensionContext) {
 		'f'
 	);
 	const letterW = vscode.languages.registerCompletionItemProvider(
-		{ language: 'rosemary', scheme: 'file' },
+		{ language: 'rosemary' },
 		{
 			provideCompletionItems(document: vscode.TextDocument, position: vscode.Position) {
 
@@ -95,7 +95,7 @@ export function activate(context: vscode.ExtensionContext) {
 		'w'
 	);
 	const letterP = vscode.languages.registerCompletionItemProvider(
-		{ language: 'rosemary', scheme: 'file' },
+		{ language: 'rosemary' },
 		{
 			provideCompletionItems(document: vscode.TextDocument, position: vscode.Position) {
 
@@ -109,7 +109,7 @@ export function activate(context: vscode.ExtensionContext) {
 		'p'
 	);
 	const letterS = vscode.languages.registerCompletionItemProvider(
-		{ language: 'rosemary', scheme: 'file' },
+		{ language: 'rosemary' },
 		{
 			provideCompletionItems(document: vscode.TextDocument, position: vscode.Position) {
 
@@ -124,7 +124,7 @@ export function activate(context: vscode.ExtensionContext) {
 		's'
 	);
 	const letterB = vscode.languages.registerCompletionItemProvider(
-		{ language: 'rosemary', scheme: 'file' },
+		{ language: 'rosemary' },
 		{
 			provideCompletionItems(document: vscode.TextDocument, position: vscode.Position) {
 
@@ -139,7 +139,7 @@ export function activate(context: vscode.ExtensionContext) {
 		'b'
 	);
 	const letterT = vscode.languages.registerCompletionItemProvider(
-		{ language: 'rosemary', scheme: 'file' },
+		{ language: 'rosemary' },
 		{
 			provideCompletionItems(document: vscode.TextDocument, position: vscode.Position) {
 
@@ -153,7 +153,7 @@ export function activate(context: vscode.ExtensionContext) {
 		't'
 	);
 	const letterE = vscode.languages.registerCompletionItemProvider(
-		{ language: 'rosemary', scheme: 'file' },
+		{ language: 'rosemary' },
 		{
 			provideCompletionItems(document: vscode.TextDocument, position: vscode.Position) {
 				return [
@@ -166,7 +166,7 @@ export function activate(context: vscode.ExtensionContext) {
 		'e'
 	);
 	const letterL = vscode.languages.registerCompletionItemProvider(
-		{ language: 'rosemary', scheme: 'file' },
+		{ language: 'rosemary' },
 		{
 			provideCompletionItems(document: vscode.TextDocument, position: vscode.Position) {
 				return [
@@ -178,7 +178,7 @@ export function activate(context: vscode.ExtensionContext) {
 		'l'
 	);
 	const letterR = vscode.languages.registerCompletionItemProvider(
-		{ language: 'rosemary', scheme: 'file' },
+		{ language: 'rosemary' },
 		{
 			provideCompletionItems(document: vscode.TextDocument, position: vscode.Position) {
 				return [
@@ -189,7 +189,7 @@ export function activate(context: vscode.ExtensionContext) {
 		'r'
 	);
 	const letterG = vscode.languages.registerCompletionItemProvider(
-		{ language: 'rosemary', scheme: 'file' },
+		{ language: 'rosemary' },
 		{
 			provideCompletionItems(document: vscode.TextDocument, position: vscode.Position) {
 				return [
@@ -221,6 +221,11 @@ export function activate(context: vscode.ExtensionContext) {
     }
 };
 
-const selector = { language: 'rosemary', scheme: 'file' }; // register for all Java documents from the local file system
+const selector = { language: 'rosemary' }; // register for all Java documents from the local file system
 
 vscode.languages.registerDocumentSemanticTokensProvider(selector, provider, legend); */
+
+// This method is called when your extension is deactivated
+export function deactivate() {
+	// Noop
+}
