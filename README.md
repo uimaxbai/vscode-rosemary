@@ -2,6 +2,8 @@
 
 A simple VSC extension for the programming language Rosemary, located [here](https://github.com/spartanproj/rosemary).
 
+Works with `.rsmy` and `.rh` files.
+
 ## Features
 
 ### Syntax highlighting
