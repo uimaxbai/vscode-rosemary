@@ -1,0 +1,49 @@
+{
+  "name": "rosemary",
+  "displayName": "Rosemary",
+  "description": "Syntax highlighting, debugging, auto-complete (IntelliSense)",
+  "version": "0.0.1",
+  "license": "MIT",
+  "publisher": "Max Bai",
+  "repository": {
+    "type": "git",
+		"url": "https://github.com/uimaxbai/vscode-rosemary"
+  },
+  "engines": {
+    "vscode": "^1.78.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+		"onStartupFinished"
+	],
+  "contributes": {
+    "languages": [{
+      "id": "rosemary",
+      "aliases": ["Rosemary", "rosemary"],
+      "extensions": [".rsmy",".rh"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "rosemary",
+      "scopeName": "source.rosemary",
+      "path": "./syntaxes/rosemary.tmLanguage.json"
+    }]
+  },
+  "main": "./out/extension.js",
+  "scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint \"src/**/*.ts\"",
+		"watch": "tsc -watch -p ./"
+	},
+	"devDependencies": {
+		"@types/node": "^16.11.7",
+		"@types/vscode": "^1.73.0",
+		"@typescript-eslint/eslint-plugin": "^5.42.0",
+		"@typescript-eslint/parser": "^5.42.0",
+		"eslint": "^8.26.0",
+		"typescript": "^5.0.2"
+	}
+}
