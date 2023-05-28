@@ -61,7 +61,7 @@ export function activate(context: vscode.ExtensionContext) {
 				];
 			}
 		},
-		'i' // triggered whenever a '.' is being typed
+		'i'
 	);
 	const letterF = vscode.languages.registerCompletionItemProvider(
 		{ language: 'rosemary', scheme: 'file' },
@@ -78,7 +78,7 @@ export function activate(context: vscode.ExtensionContext) {
 				];
 			}
 		},
-		'f' // triggered whenever a '.' is being typed
+		'f'
 	);
 	const letterW = vscode.languages.registerCompletionItemProvider(
 		{ language: 'rosemary', scheme: 'file' },
@@ -92,7 +92,7 @@ export function activate(context: vscode.ExtensionContext) {
 				];
 			}
 		},
-		'w' // triggered whenever a '.' is being typed
+		'w'
 	);
 	const letterP = vscode.languages.registerCompletionItemProvider(
 		{ language: 'rosemary', scheme: 'file' },
@@ -106,7 +106,7 @@ export function activate(context: vscode.ExtensionContext) {
 				];
 			}
 		},
-		'p' // triggered whenever a '.' is being typed
+		'p'
 	);
 	const letterS = vscode.languages.registerCompletionItemProvider(
 		{ language: 'rosemary', scheme: 'file' },
@@ -121,7 +121,7 @@ export function activate(context: vscode.ExtensionContext) {
 				];
 			}
 		},
-		's' // triggered whenever a '.' is being typed
+		's'
 	);
 	const letterB = vscode.languages.registerCompletionItemProvider(
 		{ language: 'rosemary', scheme: 'file' },
@@ -136,7 +136,7 @@ export function activate(context: vscode.ExtensionContext) {
 				];
 			}
 		},
-		'b' // triggered whenever a '.' is being typed
+		'b'
 	);
 	const letterT = vscode.languages.registerCompletionItemProvider(
 		{ language: 'rosemary', scheme: 'file' },
@@ -150,7 +150,7 @@ export function activate(context: vscode.ExtensionContext) {
 				];
 			}
 		},
-		't' // triggered whenever a '.' is being typed
+		't'
 	);
 	const letterE = vscode.languages.registerCompletionItemProvider(
 		{ language: 'rosemary', scheme: 'file' },
@@ -163,7 +163,7 @@ export function activate(context: vscode.ExtensionContext) {
 				];
 			}
 		},
-		'e' // triggered whenever a '.' is being typed
+		'e'
 	);
 	const letterL = vscode.languages.registerCompletionItemProvider(
 		{ language: 'rosemary', scheme: 'file' },
@@ -175,7 +175,7 @@ export function activate(context: vscode.ExtensionContext) {
 				];
 			}
 		},
-		'l' // triggered whenever a '.' is being typed
+		'l'
 	);
 	const letterR = vscode.languages.registerCompletionItemProvider(
 		{ language: 'rosemary', scheme: 'file' },
@@ -186,7 +186,7 @@ export function activate(context: vscode.ExtensionContext) {
 				];
 			}
 		},
-		'r' // triggered whenever a '.' is being typed
+		'r'
 	);
 	const letterG = vscode.languages.registerCompletionItemProvider(
 		{ language: 'rosemary', scheme: 'file' },
@@ -197,7 +197,7 @@ export function activate(context: vscode.ExtensionContext) {
 				];
 			}
 		},
-		'g' // triggered whenever a '.' is being typed
+		'g'
 	);
 	
 
