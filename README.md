@@ -47,6 +47,7 @@ To use Semantic highlighting in VSCode, turn it on in your Settings by searching
 ## Release Notes
 
 ### 0.1.0
+
 Full browser support has been implemented. Try it out at [vscode.dev](https://vscode.dev).
 
 ### 0.0.3
