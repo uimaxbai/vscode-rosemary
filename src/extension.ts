@@ -8,7 +8,9 @@
  * @returns The code snippet does not have a return statement. It is an extension for Visual Studio
  * Code that registers completion item providers for the Rosemary language.
  */
+'use strict';
 import * as vscode from 'vscode';
+import * as path from 'path';
 
 /* const tokenTypes = ['function', 'variable'];
 const tokenModifiers = ['declaration'];
@@ -16,6 +18,17 @@ const legend = new vscode.SemanticTokensLegend(tokenTypes, tokenModifiers); */
 
 export function activate(context: vscode.ExtensionContext) {
 	console.log("Hello. I am working!");
+
+	const collection = vscode.languages.createDiagnosticCollection('test');
+	if (vscode.window.activeTextEditor) {
+		updateDiagnostics(vscode.window.activeTextEditor.document, collection);
+	}
+	context.subscriptions.push(vscode.window.onDidChangeActiveTextEditor(editor => {
+		if (editor) {
+			updateDiagnostics(editor.document, collection);
+		}
+	}));
+
 	/* const provider1 = vscode.languages.registerCompletionItemProvider('plaintext', {
 
 		provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
@@ -234,6 +247,25 @@ export function activate(context: vscode.ExtensionContext) {
 const selector = { language: 'rosemary' }; // register for all Java documents from the local file system
 
 vscode.languages.registerDocumentSemanticTokensProvider(selector, provider, legend); */
+
+function updateDiagnostics(document: vscode.TextDocument, collection: vscode.DiagnosticCollection): void {
+	if (document && (path.extname(document.uri.fsPath) === '.rsmy' || path.extname(document.uri.fsPath) === '.rh')) {
+		// const linePrefix = document.lineAt(position).text.substr(0, position.character);
+
+		collection.set(document.uri, [{
+			code: '',
+			message: 'cannot assign twice to immutable variable `x`',
+			range: new vscode.Range(new vscode.Position(3, 4), new vscode.Position(3, 10)),
+			severity: vscode.DiagnosticSeverity.Error,
+			source: '',
+			relatedInformation: [
+				new vscode.DiagnosticRelatedInformation(new vscode.Location(document.uri, new vscode.Range(new vscode.Position(1, 8), new vscode.Position(1, 9))), 'first assignment to `x`')
+			]
+		}]);
+	} else {
+		collection.clear();
+	}
+}
 
 // This method is called when your extension is deactivated
 export function deactivate() {

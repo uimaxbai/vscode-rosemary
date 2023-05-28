@@ -1,12 +1,32 @@
-"use strict";
+/**
+ * This is a VS Code extension that provides autocomplete suggestions for the Rosemary programming
+ * language.
+ * @param context - The extension context is a collection of utilities and services that an extension
+ * can use during its lifecycle. It provides access to the extension's storage path, subscriptions, and
+ * other resources. The context is passed to the extension's activate function when it is activated and
+ * can be used to register commands, providers, and
+ * @returns The code snippet does not have a return statement. It is an extension for Visual Studio
+ * Code that registers completion item providers for the Rosemary language.
+ */
+'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deactivate = exports.activate = void 0;
 const vscode = require("vscode");
+const path = require("path");
 /* const tokenTypes = ['function', 'variable'];
 const tokenModifiers = ['declaration'];
 const legend = new vscode.SemanticTokensLegend(tokenTypes, tokenModifiers); */
 function activate(context) {
     console.log("Hello. I am working!");
+    const collection = vscode.languages.createDiagnosticCollection('test');
+    if (vscode.window.activeTextEditor) {
+        updateDiagnostics(vscode.window.activeTextEditor.document, collection);
+    }
+    context.subscriptions.push(vscode.window.onDidChangeActiveTextEditor(editor => {
+        if (editor) {
+            updateDiagnostics(editor.document, collection);
+        }
+    }));
     /* const provider1 = vscode.languages.registerCompletionItemProvider('plaintext', {
 
         provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
@@ -157,6 +177,23 @@ exports.activate = activate;
 const selector = { language: 'rosemary' }; // register for all Java documents from the local file system
 
 vscode.languages.registerDocumentSemanticTokensProvider(selector, provider, legend); */
+function updateDiagnostics(document, collection) {
+    if (document && (path.extname(document.uri.fsPath) === '.rsmy' || path.extname(document.uri.fsPath) === '.rh')) {
+        collection.set(document.uri, [{
+                code: '',
+                message: 'cannot assign twice to immutable variable `x`',
+                range: new vscode.Range(new vscode.Position(3, 4), new vscode.Position(3, 10)),
+                severity: vscode.DiagnosticSeverity.Error,
+                source: '',
+                relatedInformation: [
+                    new vscode.DiagnosticRelatedInformation(new vscode.Location(document.uri, new vscode.Range(new vscode.Position(1, 8), new vscode.Position(1, 9))), 'first assignment to `x`')
+                ]
+            }]);
+    }
+    else {
+        collection.clear();
+    }
+}
 // This method is called when your extension is deactivated
 function deactivate() {
     // Noop

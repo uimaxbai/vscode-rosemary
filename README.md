@@ -1,10 +1,19 @@
 # vscode-rosemary
 
-A simple VSC extension for the programming language Rosemary, located [here](https://github.com/spartanproj/rosemary).
+A simple Visual Studio Code extension for the programming language Rosemary, located [here](https://github.com/spartanproj/rosemary).
 
 Works with `.rsmy` and `.rh` files.
 
 ## Features
+
+### Support for the browser on [vscode.dev](https://vscode.dev)
+
+Partial support is on the browser counterpart of VS Code. This includes:
+
+- Syntax highlighting
+- Partial IntelliSense in open files
+
+*Don't always expect to get the latest features with the desktop release, however.*
 
 ### Syntax highlighting
 
