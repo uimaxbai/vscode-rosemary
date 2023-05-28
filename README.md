@@ -34,6 +34,7 @@ To use Semantic highlighting in VSCode, turn it on in your Settings by searching
 ## Known Issues
 
 - Sometimes IntelliSense is a bit slow to start, working on optimizing it as a low priority job
+- If you see two of each keyword in the completion list, restart! I don't know why it happens
 - > I can't see the highlighting!
   
   That's not my fault. Try a different theme (Dark+ is a good one) and go into your settings.

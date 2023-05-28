@@ -1,0 +1,6 @@
+string a = "How cool is this?"
+bool b = true
+if b==true {
+    print a
+}
+i
