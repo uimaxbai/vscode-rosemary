@@ -33,11 +33,15 @@
     }]
   },
   "main": "./out/extension.js",
+  "browser": "./dist/web/extension.js",
   "scripts": {
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",
 		"lint": "eslint \"src/**/*.ts\"",
-		"watch": "tsc -watch -p ./"
+		"watch": "tsc -watch -p ./",
+    "compile-web": "webpack",
+    "watch-web": "webpack --watch",
+    "package-web": "webpack --mode production --devtool hidden-source-map"
 	},
 	"devDependencies": {
 		"@types/node": "^16.11.7",
@@ -45,6 +49,11 @@
 		"@typescript-eslint/eslint-plugin": "^5.42.0",
 		"@typescript-eslint/parser": "^5.42.0",
 		"eslint": "^8.26.0",
-		"typescript": "^5.0.2"
+		"typescript": "^5.0.2",
+    "ts-loader": "^9.2.2",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.0",
+    "@types/webpack-env": "^1.16.0",
+    "process": "^0.11.10"
 	}
 }
