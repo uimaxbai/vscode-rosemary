@@ -55,7 +55,7 @@
 		"expression-operators": {
 			"patterns": [{
 				"name": "keyword.operator.arithmetic.rosemary",
-				"match": "(=|\\*|/|-|\\+|\\+=|-=|\\*=|/=|\\+\\+|--)"
+				"match": "(=|\\*|/|-|\\+|\\+=|-=|\\*=|/=|\\+\\+|--|$$)"
 			}]
 		},
 		"variables": {
