@@ -1,3 +1,13 @@
+/**
+ * This is a VS Code extension that provides autocomplete suggestions for the Rosemary programming
+ * language.
+ * @param context - The extension context is a collection of utilities and services that an extension
+ * can use during its lifecycle. It provides access to the extension's storage path, subscriptions, and
+ * other resources. The context is passed to the extension's activate function when it is activated and
+ * can be used to register commands, providers, and
+ * @returns The code snippet does not have a return statement. It is an extension for Visual Studio
+ * Code that registers completion item providers for the Rosemary language.
+ */
 import * as vscode from 'vscode';
 
 /* const tokenTypes = ['function', 'variable'];

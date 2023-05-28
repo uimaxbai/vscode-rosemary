@@ -3,4 +3,6 @@ bool b = true
 if b==true {
     print a
 }
-i
+if true==true {
+    print "Hello!"
+}
