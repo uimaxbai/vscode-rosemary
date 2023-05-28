@@ -1,24 +1,14 @@
 # vscode-rosemary
 
-<!-- This is the README for your extension "rosemary". After writing up a brief description, we recommend including the following sections. -->
 A simple VSC extension for the programming language Rosemary, located [here](https://github.com/spartanproj/rosemary).
 
 ## Features
-
-<!-- Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow. -->
 
 ### Syntax highlighting
 
 ![Demo of syntax highlighting](images/syntax-highlighting.png)
 
 This extension has simple syntax highlighting, with the following:
-
 
 - [x] Keywords, such as `if` and `while`
 - [x] Constants, such as `true` and `false`
@@ -39,15 +29,6 @@ This extension has simple syntax highlighting, with the following:
 
 ## Extension Settings
 
-<!-- Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something. -->
-
 To use Semantic highlighting in VSCode, turn it on in your Settings by searching `semantic` and turning Semantic Highlighting to `true`.
 
 ## Known Issues
@@ -64,11 +45,9 @@ To use Semantic highlighting in VSCode, turn it on in your Settings by searching
 
 ## Release Notes
 
-<!-- Users appreciate release notes as you update your extension. -->
-
 ### 0.0.1
+
 First release of the extension.
 Features include basic IntelliSense and syntax highlighting. More to come!
-
 
 **Enjoy!**
