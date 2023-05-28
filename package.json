@@ -4,7 +4,7 @@
   "description": "Syntax highlighting, debugging, auto-complete (IntelliSense)",
   "version": "0.0.1",
   "license": "MIT",
-  "publisher": "Max Bai",
+  "publisher": "Rosemary",
   "icon": "images/icon.png",
   "repository": {
     "type": "git",
