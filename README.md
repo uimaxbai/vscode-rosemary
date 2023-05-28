@@ -37,6 +37,7 @@ This extension has simple syntax highlighting, with the following:
 - [ ] Semantic highlighting (variables)
 - [ ] Error checking
 - [ ] Debugging
+- [ ] Embed C support in `extern ""`
 
 ## Extension Settings
 
