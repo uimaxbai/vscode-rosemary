@@ -51,4 +51,12 @@ To use Semantic highlighting in VSCode, turn it on in your Settings by searching
 First release of the extension.
 Features include basic IntelliSense and syntax highlighting. More to come!
 
+### 0.0.2
+
+Fix a small mistake I made in `package.json`.
+
+### 0.0.3
+
+Add experimental browser support at [vscode.dev](https://vscode.dev).
+
 **Enjoy!**
