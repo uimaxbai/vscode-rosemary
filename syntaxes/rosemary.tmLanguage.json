@@ -1,0 +1,103 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Rosemary",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#storage"
+		},
+		{
+			"include": "#variables"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#constant"
+		},
+		{
+			"include": "#expression-operators"
+		},
+		{
+			"include": "#support"
+		}
+	],
+	"repository": {
+		"support": {
+			"patterns": [{
+				"name": "support.function.builtin.rosemary",
+				"match": "(input|print|inc|extern|label)"
+			}]
+		},
+		"constant": {
+			"patterns": [
+				{
+					"name": "constant.language.rosemary",
+					"match": "\\b(true|false)\\b"
+				},
+				{
+					"name": "constant.numeric.dec.rosemary",
+					"match": "(1|2|3|4|5|6|7|8|9|0)"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [{
+				"name": "comment.line.number-sign.rosemary",
+				"match": "#(.*)"
+			}]
+		},
+		"expression-operators": {
+			"patterns": [{
+				"name": "keyword.operator.arithmetic.rosemary",
+				"match": "(=|\\*|/|-|\\+|\\+=|-=|\\*=|/=|\\+\\+|--)"
+			}]
+		},
+		"variables": {
+			"patterns": [{
+				"name": "variable.other.rosemary",
+				"match": ""
+			}]
+		},
+		"storage": {
+			"patterns": [{
+				"name": "storage.type.rosemary",
+				"match": "\\b(int|ints|string|strings|float|floats|bool|bools)\\b"
+			}]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.rosemary",
+					"match": "\\b(if|while|ret|elif|else|goto|loop|func)\\b"
+				},
+				{
+					"name": "keyword.operator.comparison",
+					"match": "(==|!=|<|>|<=|>=)"
+				},
+				{
+					"name": "keyword.operator.other",
+					"match": "(->|,)"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.other.rosemary",
+			"begin": "(\"|')",
+			"end": "(\"|')",
+			"patterns": [
+				{
+					"name": "constant.character.escape.rosemary",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	
+	"scopeName": "source.rosemary"
+}
