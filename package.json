@@ -1,8 +1,8 @@
 {
   "name": "rosemary",
   "displayName": "Rosemary",
-  "description": "Syntax highlighting, debugging, auto-complete (IntelliSense)",
-  "version": "0.0.1",
+  "description": "Syntax highlighting, auto-complete (IntelliSense)",
+  "version": "0.0.2",
   "license": "MIT",
   "publisher": "Rosemary",
   "icon": "images/icon.png",
