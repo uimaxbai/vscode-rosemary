@@ -5,7 +5,6 @@ const tokenModifiers = ['declaration'];
 const legend = new vscode.SemanticTokensLegend(tokenTypes, tokenModifiers); */
 
 export function activate(context: vscode.ExtensionContext) {
-	console.log("Hello. I am working!");
 	/* const provider1 = vscode.languages.registerCompletionItemProvider('plaintext', {
 
 		provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
