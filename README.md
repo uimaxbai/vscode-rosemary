@@ -26,6 +26,7 @@ This extension has simple syntax highlighting, with the following:
 - Keywords, such as `if` and `while`
 - Constants, such as `true` and `false`
 - Commands, such as `print` and `input`
+- Variables
 
 ### IntelliSense (auto-complete)
 
@@ -91,6 +92,8 @@ Fix a few major bugs I made in 1.0.0.
 For now, removing the 'variable without type' errors.
 
 Also use esbuild for bundling the extension for performance.
+
+(Variable highlighting has also been implemented)
 
 ### 1.0.0
 

@@ -61,7 +61,7 @@
 		"variables": {
 			"patterns": [{
 				"name": "variable.other.rosemary",
-				"match": "(?<=int|ints|string|strings|float|floats|bool|bools) [a-z]"
+				"match": "(?<=int|ints|string|strings|float|floats|bool|bools) [a-z]*"
 			}]
 		},
 		"storage": {

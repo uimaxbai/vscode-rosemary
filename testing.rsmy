@@ -1,11 +1,2 @@
-string a = "How cool is this?"
-bool b = true
-int a = 0
-float a = 0
-string b = ""
-if b==true {
-    print a
-}
-if true==true {
-    print "Hello!"
-}
+# How cool is Rosemary?
+string answer = "very cool"
