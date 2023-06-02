@@ -6,7 +6,6 @@ const vscode = require("vscode");
 const tokenModifiers = ['declaration'];
 const legend = new vscode.SemanticTokensLegend(tokenTypes, tokenModifiers); */
 function activate(context) {
-    console.log("Hello. I am working!");
     /* const provider1 = vscode.languages.registerCompletionItemProvider('plaintext', {
 
         provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
