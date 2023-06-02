@@ -292,7 +292,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 		};
 		diagnostics.push(diagnostic);
 	}
-	let pattern10 = /^[^\"]*(\"[^\"]*\"[^\"]*)*(\")[^\"]*$/gm;
+	/* let pattern10 = /^[^\"]*(\"[^\"]*\"[^\"]*)*(\")[^\"]*$/g;
 	let m10: RegExpExecArray | null;
 	while ((m10 = pattern10.exec(text)) && problems < settings.maxNumberOfProblems) {
 		problems++;
@@ -306,7 +306,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 			source: 'rosemary'
 		};
 		diagnostics.push(diagnostic);
-	}
+	} */
 	let pattern11 = /^[^\']*(\'[^\']*\'[^\']*)*(\')[^\']*$/gm;
 	let m11: RegExpExecArray | null;
 	while ((m11 = pattern11.exec(text)) && problems < settings.maxNumberOfProblems) {
