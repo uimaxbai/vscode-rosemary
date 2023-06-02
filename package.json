@@ -1,7 +1,7 @@
 {
   "name": "rosemary",
   "displayName": "Rosemary",
-  "description": "Syntax highlighting, auto-complete (IntelliSense)",
+  "description": "Syntax highlighting, IntelliSense, linting",
   "version": "0.1.0",
   "license": "MIT",
   "publisher": "Rosemary",
@@ -17,9 +17,32 @@
     "Programming Languages"
   ],
   "activationEvents": [
-    "onStartupFinished"
+    "onLanguage:rosemary"
   ],
   "contributes": {
+    "configuration": {
+			"type": "object",
+			"title": "Example configuration",
+			"properties": {
+				"languageServerExample.maxNumberOfProblems": {
+					"scope": "resource",
+					"type": "number",
+					"default": 100,
+					"description": "Controls the maximum number of problems produced by the server."
+				},
+				"languageServerExample.trace.server": {
+					"scope": "window",
+					"type": "string",
+					"enum": [
+						"off",
+						"messages",
+						"verbose"
+					],
+					"default": "off",
+					"description": "Traces the communication between VS Code and the language server."
+				}
+			}
+		},
     "languages": [
       {
         "id": "rosemary",
@@ -42,17 +65,18 @@
       }
     ]
   },
-  "main": "./out/extension.js",
+  "main": "./client/out/extension",
   "browser": "./dist/web/extension.js",
   "scripts": {
     "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "lint": "eslint \"src/**/*.ts\"",
-    "watch": "tsc -watch -p ./",
+    "compile": "tsc -b",
+    "lint": "eslint ./client/src ./server/src --ext .ts,.tsx",
+    "watch": "tsc -b -w",
     "compile-web": "webpack",
     "watch-web": "webpack --watch",
     "package-web": "webpack --mode production --devtool hidden-source-map",
     "open-in-browser": "vscode-test-web --extensionDevelopmentPath=. .",
+    "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
     "package": "vsce package"
   },
   "devDependencies": {
@@ -68,9 +92,12 @@
     "typescript": "^5.0.2",
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.0",
+    "mocha": "^9.2.1",
     "@vscode/vsce": "^2.19.0"
   },
   "dependencies": {
-    "@vscode/test-web": "^0.0.43"
+    "@vscode/test-web": "^0.0.43",
+    "vscode-languageserver": "^8.1.0",
+		"vscode-languageserver-textdocument": "^1.0.8"
   }
 }
