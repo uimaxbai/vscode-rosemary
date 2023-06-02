@@ -63,6 +63,7 @@ Checks:
 - Debugging
 - Embed C support in `extern ""`?
   - Not sure about this one
+- Rosemary code snippets!
 
 ## Extension Settings
 
