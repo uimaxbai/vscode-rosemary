@@ -54,11 +54,14 @@ Checks:
 ### To come
 
 - Semantic highlighting (variables)
+  - Variable highlighting implemented without semantic highlighting
+  - More to come
 - ~~Linting (error checking)~~ (partially implemented)
   - `return` outside of a function
   - `else` or `elif` without an `if` statement
 - Debugging
-- Embed C support in `extern ""`
+- Embed C support in `extern ""`?
+  - Not sure about this one
 
 ## Extension Settings
 
