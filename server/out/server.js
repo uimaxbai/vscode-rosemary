@@ -216,21 +216,21 @@ async function validateTextDocument(textDocument) {
         };
         diagnostics.push(diagnostic);
     }
-    let pattern8 = /bool [a-z]* =( |)(?!true|false)/g;
-    let m8;
+    /* let pattern8 = /bool [a-z]* =( |)(?!true|false)/g;
+    let m8: RegExpExecArray | null;
     while ((m8 = pattern8.exec(text)) && problems < settings.maxNumberOfProblems) {
         problems++;
-        const diagnostic = {
-            severity: node_1.DiagnosticSeverity.Error,
+        const diagnostic: Diagnostic = {
+            severity: DiagnosticSeverity.Error,
             range: {
                 start: textDocument.positionAt(m8.index),
                 end: textDocument.positionAt(m8.index + m8[0].length)
             },
-            message: `Unclosed quotation marks`,
+            message: `Expected true or false after bool`,
             source: 'rosemary'
         };
         diagnostics.push(diagnostic);
-    }
+    } */
     let pattern9 = /extern(?! ")/g;
     let m9;
     while ((m9 = pattern9.exec(text)) && problems < settings.maxNumberOfProblems) {
@@ -246,12 +246,12 @@ async function validateTextDocument(textDocument) {
         };
         diagnostics.push(diagnostic);
     }
-    let pattern10 = /^[^\"]*(\"[^\"]*\"[^\"]*)*(\")[^\"]*$/gm;
-    let m10;
+    /* let pattern10 = /^[^\"]*(\"[^\"]*\"[^\"]*)*(\")[^\"]*$/g;
+    let m10: RegExpExecArray | null;
     while ((m10 = pattern10.exec(text)) && problems < settings.maxNumberOfProblems) {
         problems++;
-        const diagnostic = {
-            severity: node_1.DiagnosticSeverity.Error,
+        const diagnostic: Diagnostic = {
+            severity: DiagnosticSeverity.Error,
             range: {
                 start: textDocument.positionAt(m10.index),
                 end: textDocument.positionAt(m10.index + m10[0].length)
@@ -260,7 +260,7 @@ async function validateTextDocument(textDocument) {
             source: 'rosemary'
         };
         diagnostics.push(diagnostic);
-    }
+    } */
     let pattern11 = /^[^\']*(\'[^\']*\'[^\']*)*(\')[^\']*$/gm;
     let m11;
     while ((m11 = pattern11.exec(text)) && problems < settings.maxNumberOfProblems) {

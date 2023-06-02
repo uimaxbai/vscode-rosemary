@@ -262,7 +262,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 		};
 		diagnostics.push(diagnostic);
 	}
-	let pattern8 = /bool [a-z]* =( |)(?!true|false)/g;
+	/* let pattern8 = /bool [a-z]* =( |)(?!true|false)/g;
 	let m8: RegExpExecArray | null;
 	while ((m8 = pattern8.exec(text)) && problems < settings.maxNumberOfProblems) {
 		problems++;
@@ -272,11 +272,11 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 				start: textDocument.positionAt(m8.index),
 				end: textDocument.positionAt(m8.index + m8[0].length)
 			},
-			message: `Unclosed quotation marks`,
+			message: `Expected true or false after bool`,
 			source: 'rosemary'
 		};
 		diagnostics.push(diagnostic);
-	}
+	} */
 	let pattern9 = /extern(?! ")/g;
 	let m9: RegExpExecArray | null;
 	while ((m9 = pattern9.exec(text)) && problems < settings.maxNumberOfProblems) {
