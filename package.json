@@ -1,7 +1,7 @@
 {
   "name": "rosemary",
   "displayName": "Rosemary",
-  "description": "Syntax highlighting, IntelliSense, linting",
+  "description": "Syntax highlighting, IntelliSense, Linting",
   "version": "1.0.1",
   "license": "MIT",
   "publisher": "Rosemary",
@@ -22,7 +22,7 @@
   "contributes": {
     "configuration": {
       "type": "object",
-      "title": "Example configuration",
+      "title": "Rosemary LSP Configuration",
       "properties": {
         "rosemary.maxNumberOfProblems": {
           "scope": "resource",
