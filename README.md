@@ -48,7 +48,7 @@ Checks:
 - Commands such as `print` and `extern` without a value
 - `if` or `elif` statement without condition
 - `if` or `elif` statement without brackets
-- Variables without types
+<!-- - Variables without types -->
 - And much more...
 
 ### To come
@@ -81,7 +81,7 @@ To use Semantic highlighting in VSCode, turn it on in your Settings by searching
 
 ### 1.0.0
 
-#### New major update!
+#### New major update
 
 - Added linting.
 - Also restructured the extension so that IntelliSense and linting are now inside a LSP.
