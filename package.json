@@ -2,7 +2,7 @@
   "name": "rosemary",
   "displayName": "Rosemary",
   "description": "Syntax highlighting, IntelliSense, linting",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "publisher": "Rosemary",
   "icon": "images/icon.png",
