@@ -76,11 +76,9 @@ To use Semantic highlighting in VSCode, turn it on in your Settings by searching
 - > I can't see the highlighting!
   
   That's not my fault. Try a different theme (Dark+ is a good one) and go into your settings.
-- > There is no highlighting on the variables/other stuff!
+- > There is no highlighting on \<insert random stuff here\>!
   
-  Semantic highlighting has not been added yet and I don't want to do it using a regex.
-  
-  Please, please only make an issue if it's a Rosemary keyword/command that has not been added within a fortnight of being added. I have to juggle around my time too!
+  Please, please only make an issue if it's a Rosemary keyword/command that has not been added to the extension within a fortnight of being added to Rosemary. I have to juggle around my time too!
 
 ## Release Notes
 
