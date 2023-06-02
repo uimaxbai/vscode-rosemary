@@ -54,8 +54,9 @@ Checks:
 
 ### To come
 
-- Semantic highlighting (variables)
+- Semantic highlighting (functions)
   - Variable highlighting implemented without semantic highlighting
+  - Function highlighting needed
   - More to come
 - ~~Linting (error checking)~~ (partially implemented)
   - `return` outside of a function
@@ -76,7 +77,7 @@ To use Semantic highlighting in VSCode, turn it on in your Settings by searching
 - > I can't see the highlighting!
   
   That's not my fault. Try a different theme (Dark+ is a good one) and go into your settings.
-- > There is no highlighting on \<insert random stuff here\>!
+- > There is no highlighting on functions/random thing!
   
   Please, please only make an issue if it's a Rosemary keyword/command that has not been added to the extension within a fortnight of being added to Rosemary. I have to juggle around my time too!
 
