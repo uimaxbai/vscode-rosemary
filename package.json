@@ -27,7 +27,7 @@
         "rosemary.maxNumberOfProblems": {
           "scope": "resource",
           "type": "number",
-          "default": 100,
+          "default": 10000,
           "description": "Controls the maximum number of problems produced by the server."
         },
         "rosemary.trace.server": {
