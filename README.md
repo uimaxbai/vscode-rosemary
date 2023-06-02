@@ -83,7 +83,7 @@ To use Semantic highlighting in VSCode, turn it on in your Settings by searching
 
 Fix a few major bugs I made in 1.0.0.
 
-For now, removing the 'variable without type' errors and unclosed quotation marks.
+For now, removing the 'variable without type' errors.
 
 Also use esbuild for bundling the extension for performance.
 
