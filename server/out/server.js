@@ -186,7 +186,7 @@ async function validateTextDocument(textDocument) {
         };
         diagnostics.push(diagnostic);
     }
-    let pattern6 = /int [a-z]* =(\s|\D)*$/g;
+    let pattern6 = /(int|float) [a-z]* =(\s|\D)*$/g;
     let m6;
     while ((m6 = pattern6.exec(text)) && problems < settings.maxNumberOfProblems) {
         problems++;
@@ -201,7 +201,7 @@ async function validateTextDocument(textDocument) {
         };
         diagnostics.push(diagnostic);
     }
-    let pattern7 = /bool [a-z]* =( |)(?!true|false)/g;
+    let pattern7 = /bool [a-z]* =(\s|\D)(?!true|false)/g;
     let m7;
     while ((m7 = pattern7.exec(text)) && problems < settings.maxNumberOfProblems) {
         problems++;
@@ -276,12 +276,12 @@ async function validateTextDocument(textDocument) {
         };
         diagnostics.push(diagnostic);
     }
-    let pattern12 = /(?<!int |bool |float |string )\S\s?=/g;
-    let m12;
+    /* let pattern12 = /(?<!int |bool |float |string |if |elif )\S\s?=/g;
+    let m12: RegExpExecArray | null;
     while ((m12 = pattern12.exec(text)) && problems < settings.maxNumberOfProblems) {
         problems++;
-        const diagnostic = {
-            severity: node_1.DiagnosticSeverity.Error,
+        const diagnostic: Diagnostic = {
+            severity: DiagnosticSeverity.Error,
             range: {
                 start: textDocument.positionAt(m12.index),
                 end: textDocument.positionAt(m12.index + m12[0].length)
@@ -301,7 +301,7 @@ async function validateTextDocument(textDocument) {
             ];
         }
         diagnostics.push(diagnostic);
-    }
+    } */
     // Send the computed diagnostics to VSCode.
     connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
 }
