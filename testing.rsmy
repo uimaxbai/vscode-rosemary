@@ -3,4 +3,3 @@ bool b = true
 if b==true {
     print a
 }
-i
