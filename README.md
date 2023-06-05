@@ -86,6 +86,11 @@ To use Semantic highlighting in VSCode, turn it on in your Settings by searching
 
 This extension uses the Semantic Versioning System, which goes like this: MAJOR.MINOR.HOTFIX
 
+### 1.0.3
+
+- Fix a server communication error.
+- Bundle is now a smaller size for performance.
+
 ### 1.0.2
 
 - Fix comments being # to //.

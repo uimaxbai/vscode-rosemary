@@ -104,7 +104,7 @@ connection.onDidChangeConfiguration(change => {
 	documents.all().forEach(validateTextDocument);
 });
 
-function getDocumentSettings(resource: string): Thenable<ExampleSettings> {
+/* function getDocumentSettings(resource: string): Thenable<ExampleSettings> {
 	if (!hasConfigurationCapability) {
 		return Promise.resolve(globalSettings);
 	}
@@ -117,7 +117,7 @@ function getDocumentSettings(resource: string): Thenable<ExampleSettings> {
 		documentSettings.set(resource, result);
 	}
 	return result;
-}
+} */
 
 // Only keep settings for open documents
 documents.onDidClose(e => {
@@ -132,7 +132,7 @@ documents.onDidChangeContent(change => {
 
 async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 	// In this simple example we get the settings for every validate run.
-	const settings = await getDocumentSettings(textDocument.uri);
+	const settings = {maxNumberOfProblems: 1000};
 
 	// The validator creates diagnostics for all uppercase words length 2 and more
 	const text = textDocument.getText();
@@ -489,11 +489,34 @@ connection.onCompletion(
 connection.onCompletionResolve(
 	(item: CompletionItem): CompletionItem => {
 		if (item.data === 1) {
-			item.detail = 'TypeScript details';
-			item.documentation = 'TypeScript documentation';
+			item.detail = 'if <condition> { <code goes here> }';
+			item.documentation = {
+				"kind": "markdown",
+				"value": "Statement that runs if the condition is **true**."
+			};
 		} else if (item.data === 2) {
-			item.detail = 'JavaScript details';
-			item.documentation = 'JavaScript documentation';
+			item.detail = 'inc <module>';
+			item.documentation = 'Include a file or module.';
+		}
+		else if (item.data === 3) {
+			item.detail = 'input <prompt>';
+			item.documentation = 'Prompts the user for an input.';
+		}
+		else if (item.data === 4) {
+			item.detail = 'int <identifier> = <number>';
+			item.documentation = 'Stores an integer value in <identifier>.';
+		}
+		else if (item.data === 5) {
+			item.detail = 'ints <identifiers>';
+			item.documentation = 'Defines one or more integers.';
+		}
+		else if (item.data === 6) {
+			item.detail = 'false';
+			item.documentation = 'Keyword that is the opposite of true.';
+		}
+		else if (item.data === 7) {
+			item.detail = 'float <identifier> = <floating point number>';
+			item.documentation = 'Stores a floating-point value in <identifier>.';
 		}
 		return item;
 	}

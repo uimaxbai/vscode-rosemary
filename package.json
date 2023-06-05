@@ -2,7 +2,7 @@
   "name": "rosemary",
   "displayName": "Rosemary",
   "description": "Syntax highlighting, IntelliSense, Linting",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "publisher": "Rosemary",
   "icon": "images/icon.png",
@@ -78,7 +78,7 @@
     "open-in-browser": "vscode-test-web --extensionDevelopmentPath=. .",
     "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
     "package": "vsce package",
-    "esbuild-base": "esbuild ./client/src/extension.ts --bundle --outfile=client/out/main.js --external:vscode --format=cjs --platform=node",
+    "esbuild-base": "esbuild ./client/src/extension.ts --bundle --outfile=client/out/main.js --external:vscode --format=cjs --platform=node && esbuild ./server/src/server.ts --bundle --outfile=server/out/server.js --external:vscode --format=cjs --platform=node",
     "esbuild": "npm run esbuild-base -- --minify",
     "esbuild-watch": "npm run esbuild-base -- --minify --watch",
     "test-compile": "tsc -p ./"
@@ -101,8 +101,6 @@
     "webpack-cli": "^4.7.0"
   },
   "dependencies": {
-    "@vscode/test-web": "^0.0.43",
-    "vsce": "^2.15.0",
     "vscode-languageserver": "^8.1.0",
     "vscode-languageserver-textdocument": "^1.0.8"
   }
