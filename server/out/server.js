@@ -141,7 +141,7 @@ async function validateTextDocument(textDocument) {
         };
         diagnostics.push(diagnostic);
     }
-    let pattern3 = /\b(goto|ret|input|print|inc|label)(?! \S)/g;
+    let pattern3 = /\b(goto|ret|input|print|inc|label)(?! \S|\S)/g;
     let m3;
     while ((m3 = pattern3.exec(text)) && problems < settings.maxNumberOfProblems) {
         problems++;

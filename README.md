@@ -61,6 +61,7 @@ Checks:
 - ~~Linting (error checking)~~ (partially implemented)
   - `return` outside of a function
   - `else` or `elif` without an `if` statement
+  - Undefined functions
 - Debugging
 - Embed C support in `extern ""`?
   - Not sure about this one
@@ -87,7 +88,8 @@ This extension uses the Semantic Versioning System, which goes like this: MAJOR.
 
 ### 1.0.2
 
-Fix comments being # to //.
+- Fix comments being # to //.
+- Fix func printn() returning an error.
 
 ### 1.0.1
 
