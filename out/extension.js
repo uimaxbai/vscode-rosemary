@@ -1,11 +1,32 @@
-"use strict";
+/**
+ * This is a VS Code extension that provides autocomplete suggestions for the Rosemary programming
+ * language.
+ * @param context - The extension context is a collection of utilities and services that an extension
+ * can use during its lifecycle. It provides access to the extension's storage path, subscriptions, and
+ * other resources. The context is passed to the extension's activate function when it is activated and
+ * can be used to register commands, providers, and
+ * @returns The code snippet does not have a return statement. It is an extension for Visual Studio
+ * Code that registers completion item providers for the Rosemary language.
+ */
+'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.activate = void 0;
+exports.deactivate = exports.activate = void 0;
 const vscode = require("vscode");
+const path = require("path");
 /* const tokenTypes = ['function', 'variable'];
 const tokenModifiers = ['declaration'];
 const legend = new vscode.SemanticTokensLegend(tokenTypes, tokenModifiers); */
 function activate(context) {
+    console.log("Hello. I am working!");
+    const collection = vscode.languages.createDiagnosticCollection('test');
+    if (vscode.window.activeTextEditor) {
+        updateDiagnostics(vscode.window.activeTextEditor.document, collection);
+    }
+    context.subscriptions.push(vscode.window.onDidChangeActiveTextEditor(editor => {
+        if (editor) {
+            updateDiagnostics(editor.document, collection);
+        }
+    }));
     /* const provider1 = vscode.languages.registerCompletionItemProvider('plaintext', {
 
         provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
@@ -44,7 +65,7 @@ function activate(context) {
             ];
         }
     }); */
-    const letterI = vscode.languages.registerCompletionItemProvider({ language: 'rosemary', scheme: 'file' }, {
+    const letterI = vscode.languages.registerCompletionItemProvider({ language: 'rosemary' }, {
         provideCompletionItems(document, position) {
             return [
                 new vscode.CompletionItem('if', vscode.CompletionItemKind.Keyword),
@@ -54,9 +75,8 @@ function activate(context) {
                 new vscode.CompletionItem('ints', vscode.CompletionItemKind.Keyword),
             ];
         }
-    }, 'i' // triggered whenever a '.' is being typed
-    );
-    const letterF = vscode.languages.registerCompletionItemProvider({ language: 'rosemary', scheme: 'file' }, {
+    }, 'i');
+    const letterF = vscode.languages.registerCompletionItemProvider({ language: 'rosemary' }, {
         provideCompletionItems(document, position) {
             return [
                 new vscode.CompletionItem('false', vscode.CompletionItemKind.Keyword),
@@ -65,51 +85,45 @@ function activate(context) {
                 new vscode.CompletionItem('func', vscode.CompletionItemKind.Keyword),
             ];
         }
-    }, 'f' // triggered whenever a '.' is being typed
-    );
-    const letterW = vscode.languages.registerCompletionItemProvider({ language: 'rosemary', scheme: 'file' }, {
+    }, 'f');
+    const letterW = vscode.languages.registerCompletionItemProvider({ language: 'rosemary' }, {
         provideCompletionItems(document, position) {
             return [
                 new vscode.CompletionItem('while', vscode.CompletionItemKind.Keyword),
             ];
         }
-    }, 'w' // triggered whenever a '.' is being typed
-    );
-    const letterP = vscode.languages.registerCompletionItemProvider({ language: 'rosemary', scheme: 'file' }, {
+    }, 'w');
+    const letterP = vscode.languages.registerCompletionItemProvider({ language: 'rosemary' }, {
         provideCompletionItems(document, position) {
             return [
                 new vscode.CompletionItem('print', vscode.CompletionItemKind.Method),
             ];
         }
-    }, 'p' // triggered whenever a '.' is being typed
-    );
-    const letterS = vscode.languages.registerCompletionItemProvider({ language: 'rosemary', scheme: 'file' }, {
+    }, 'p');
+    const letterS = vscode.languages.registerCompletionItemProvider({ language: 'rosemary' }, {
         provideCompletionItems(document, position) {
             return [
                 new vscode.CompletionItem('string', vscode.CompletionItemKind.Keyword),
                 new vscode.CompletionItem('strings', vscode.CompletionItemKind.Keyword),
             ];
         }
-    }, 's' // triggered whenever a '.' is being typed
-    );
-    const letterB = vscode.languages.registerCompletionItemProvider({ language: 'rosemary', scheme: 'file' }, {
+    }, 's');
+    const letterB = vscode.languages.registerCompletionItemProvider({ language: 'rosemary' }, {
         provideCompletionItems(document, position) {
             return [
                 new vscode.CompletionItem('bool', vscode.CompletionItemKind.Keyword),
                 new vscode.CompletionItem('bools', vscode.CompletionItemKind.Keyword),
             ];
         }
-    }, 'b' // triggered whenever a '.' is being typed
-    );
-    const letterT = vscode.languages.registerCompletionItemProvider({ language: 'rosemary', scheme: 'file' }, {
+    }, 'b');
+    const letterT = vscode.languages.registerCompletionItemProvider({ language: 'rosemary' }, {
         provideCompletionItems(document, position) {
             return [
                 new vscode.CompletionItem('true', vscode.CompletionItemKind.Keyword),
             ];
         }
-    }, 't' // triggered whenever a '.' is being typed
-    );
-    const letterE = vscode.languages.registerCompletionItemProvider({ language: 'rosemary', scheme: 'file' }, {
+    }, 't');
+    const letterE = vscode.languages.registerCompletionItemProvider({ language: 'rosemary' }, {
         provideCompletionItems(document, position) {
             return [
                 new vscode.CompletionItem('elif', vscode.CompletionItemKind.Keyword),
@@ -117,33 +131,29 @@ function activate(context) {
                 new vscode.CompletionItem('extern', vscode.CompletionItemKind.Method),
             ];
         }
-    }, 'e' // triggered whenever a '.' is being typed
-    );
-    const letterL = vscode.languages.registerCompletionItemProvider({ language: 'rosemary', scheme: 'file' }, {
+    }, 'e');
+    const letterL = vscode.languages.registerCompletionItemProvider({ language: 'rosemary' }, {
         provideCompletionItems(document, position) {
             return [
                 new vscode.CompletionItem('label', vscode.CompletionItemKind.Method),
                 new vscode.CompletionItem('loop', vscode.CompletionItemKind.Keyword),
             ];
         }
-    }, 'l' // triggered whenever a '.' is being typed
-    );
-    const letterR = vscode.languages.registerCompletionItemProvider({ language: 'rosemary', scheme: 'file' }, {
+    }, 'l');
+    const letterR = vscode.languages.registerCompletionItemProvider({ language: 'rosemary' }, {
         provideCompletionItems(document, position) {
             return [
                 new vscode.CompletionItem('ret', vscode.CompletionItemKind.Method),
             ];
         }
-    }, 'r' // triggered whenever a '.' is being typed
-    );
-    const letterG = vscode.languages.registerCompletionItemProvider({ language: 'rosemary', scheme: 'file' }, {
+    }, 'r');
+    const letterG = vscode.languages.registerCompletionItemProvider({ language: 'rosemary' }, {
         provideCompletionItems(document, position) {
             return [
                 new vscode.CompletionItem('goto', vscode.CompletionItemKind.Method),
             ];
         }
-    }, 'g' // triggered whenever a '.' is being typed
-    );
+    }, 'g');
     context.subscriptions.push(letterB, letterE, letterF, letterI, letterP, letterS, letterT, letterW, letterL, letterR, letterG);
 }
 exports.activate = activate;
@@ -164,7 +174,29 @@ exports.activate = activate;
     }
 };
 
-const selector = { language: 'rosemary', scheme: 'file' }; // register for all Java documents from the local file system
+const selector = { language: 'rosemary' }; // register for all Java documents from the local file system
 
-vscode.languages.registerDocumentSemanticTokensProvider(selector, provider, legend); */ 
+vscode.languages.registerDocumentSemanticTokensProvider(selector, provider, legend); */
+function updateDiagnostics(document, collection) {
+    if (document && (path.extname(document.uri.fsPath) === '.rsmy' || path.extname(document.uri.fsPath) === '.rh')) {
+        collection.set(document.uri, [{
+                code: '',
+                message: 'cannot assign twice to immutable variable `x`',
+                range: new vscode.Range(new vscode.Position(3, 4), new vscode.Position(3, 10)),
+                severity: vscode.DiagnosticSeverity.Error,
+                source: '',
+                relatedInformation: [
+                    new vscode.DiagnosticRelatedInformation(new vscode.Location(document.uri, new vscode.Range(new vscode.Position(1, 8), new vscode.Position(1, 9))), 'first assignment to `x`')
+                ]
+            }]);
+    }
+    else {
+        collection.clear();
+    }
+}
+// This method is called when your extension is deactivated
+function deactivate() {
+    // Noop
+}
+exports.deactivate = deactivate;
 //# sourceMappingURL=extension.js.map

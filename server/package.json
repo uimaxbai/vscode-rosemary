@@ -1,0 +1,15 @@
+{
+	"name": "rosemary",
+	"description": "Server-side implementation for Rosemary's LSP.",
+	"version": "0.1.0",
+	"author": "Rosemary",
+	"license": "MIT",
+	"engines": {
+		"node": "*"
+	},
+	"dependencies": {
+		"vscode-languageserver": "^8.1.0",
+		"vscode-languageserver-textdocument": "^1.0.8"
+	},
+	"scripts": {}
+}
