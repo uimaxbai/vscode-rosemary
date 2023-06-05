@@ -49,7 +49,7 @@
 		"comments": {
 			"patterns": [{
 				"name": "comment.line.number-sign.rosemary",
-				"match": "#(.*)"
+				"match": "//(.*)"
 			}]
 		},
 		"expression-operators": {

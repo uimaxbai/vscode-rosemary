@@ -2,7 +2,7 @@
   "name": "rosemary",
   "displayName": "Rosemary",
   "description": "Syntax highlighting, IntelliSense, Linting",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "publisher": "Rosemary",
   "icon": "images/icon.png",
@@ -102,6 +102,7 @@
   },
   "dependencies": {
     "@vscode/test-web": "^0.0.43",
+    "vsce": "^2.15.0",
     "vscode-languageserver": "^8.1.0",
     "vscode-languageserver-textdocument": "^1.0.8"
   }

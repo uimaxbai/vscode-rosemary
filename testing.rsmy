@@ -1,2 +1,7 @@
+string a = "How cool is this?"
+bool b = true
+if b==true {
+    print a
+}
 # How cool is Rosemary?
 string answer = "very cool"
