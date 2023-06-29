@@ -28,6 +28,9 @@
 		},
 		{
 			"include": "#meta"
+		},
+		{
+			"include": "#entity"
 		}
 	],
 	"repository": {
@@ -104,6 +107,14 @@
 			"patterns": [
 				{
 					"name": "meta.function.rosemary",
+					"match": "(?<=func ).+?(?=\\()"
+				}
+			]
+		},
+		"entity": {
+			"patterns": [
+				{
+					"name": "entity.name.function.rosemary",
 					"match": "(?<=func ).+?(?=\\()"
 				}
 			]
