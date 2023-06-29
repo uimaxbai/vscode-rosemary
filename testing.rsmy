@@ -3,5 +3,5 @@ bool b = true
 if b==true {
     print a
 }
-# How cool is Rosemary?
+// How cool is Rosemary?
 string answer = "very cool"

@@ -29,6 +29,7 @@ let hasWorkspaceFolderCapability = false;
 let hasDiagnosticRelatedInformationCapability = false;
 
 connection.onInitialize((params: InitializeParams) => {
+// sourcery skip: use-object-destructuring
 	const capabilities = params.capabilities;
 
 	// Does the client support the `workspace/configuration` request?
@@ -348,6 +349,22 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 		}
 		diagnostics.push(diagnostic);
 	} */
+
+	let pattern13 = /^#/gm;
+	let m13: RegExpExecArray | null;
+	while ((m13 = pattern13.exec(text)) && problems < settings.maxNumberOfProblems) {
+		problems++;
+		const diagnostic: Diagnostic = {
+			severity: DiagnosticSeverity.Error,
+			range: {
+				start: textDocument.positionAt(m13.index),
+				end: textDocument.positionAt(m13.index + m13[0].length)
+			},
+			message: `Comments should be //, not #`,
+			source: 'rosemary'
+		};
+		diagnostics.push(diagnostic);
+	}
 
 	// Send the computed diagnostics to VSCode.
 	connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
