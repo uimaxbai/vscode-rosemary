@@ -25,6 +25,9 @@
 		},
 		{
 			"include": "#support"
+		},
+		{
+			"include": "#meta"
 		}
 	],
 	"repository": {
@@ -94,6 +97,14 @@
 				{
 					"name": "constant.character.escape.rosemary",
 					"match": "\\\\."
+				}
+			]
+		},
+		"meta": {
+			"patterns": [
+				{
+					"name": "meta.function.rosemary",
+					"match": "(?<=func ).+?(?=\\()"
 				}
 			]
 		}
