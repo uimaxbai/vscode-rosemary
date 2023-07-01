@@ -15,7 +15,7 @@ Partial support is on the browser counterpart of VS Code. This includes:
 - Syntax highlighting
 - Partial IntelliSense in open files
 
-*Don't always expect to get the latest features with the desktop release, however.*
+*Don't always expect to get the latest features with the web release, however.*
 
 ### Syntax highlighting
 
@@ -27,6 +27,7 @@ This extension has simple syntax highlighting, with the following:
 - Constants, such as `true` and `false`
 - Commands, such as `print` and `input`
 - Variables
+- Functions
 
 ### IntelliSense (auto-complete)
 
@@ -65,7 +66,7 @@ Checks:
 - Debugging
 - Embed C support in `extern ""`?
   - Not sure about this one
-- Rosemary code snippets!
+- Rosemary code snippets (maybe in a different extension)!
 
 ## Extension Settings
 
@@ -85,6 +86,10 @@ To use Semantic highlighting in VSCode, turn it on in your Settings by searching
 ## Release Notes
 
 This extension uses the Semantic Versioning System, which goes like this: MAJOR.MINOR.HOTFIX
+
+### 1.1.0
+
+- Add highlighting of functions.
 
 ### 1.0.3
 

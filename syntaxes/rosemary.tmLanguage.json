@@ -67,20 +67,20 @@
 		"variables": {
 			"patterns": [{
 				"name": "variable.other.rosemary",
-				"match": "(?<=int|ints|string|strings|float|floats|bool|bools) [a-z]*"
+				"match": "^(?<=int|ints|string|strings|float|floats|bool|bools) [a-z]*"
 			}]
 		},
 		"storage": {
 			"patterns": [{
 				"name": "storage.type.rosemary",
-				"match": "\\b(int|ints|string|strings|float|floats|bool|bools)\\b"
+				"match": "^\\b(int|ints|string|strings|float|floats|bool|bools)\\b"
 			}]
 		},
 		"keywords": {
 			"patterns": [
 				{
 					"name": "keyword.control.rosemary",
-					"match": "\\b(if|while|ret|elif|else|goto|loop|func)\\b"
+					"match": "^\\b(if|while|ret|elif|else|goto|loop|func)\\b"
 				},
 				{
 					"name": "keyword.operator.comparison",
@@ -103,19 +103,11 @@
 				}
 			]
 		},
-		"meta": {
-			"patterns": [
-				{
-					"name": "meta.function.rosemary",
-					"match": "(?<=func ).+?(?=\\()"
-				}
-			]
-		},
 		"entity": {
 			"patterns": [
 				{
 					"name": "entity.name.function.rosemary",
-					"match": "(?<=func ).+?(?=\\()"
+					"match": "((?<=func ).+?(?=\\())|(^.+?(?=\\(\\)))|(input|print|inc|extern|label)"
 				}
 			]
 		}

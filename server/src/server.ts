@@ -137,7 +137,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 
 	// The validator creates diagnostics for all uppercase words length 2 and more
 	const text = textDocument.getText();
-	let pattern = /\b(string|int|bool|float) =/g;
+	let pattern = /\b(string|int|bool|float) =/gm;
 	let m: RegExpExecArray | null;
 
 	let problems = 0;
@@ -156,7 +156,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 		diagnostics.push(diagnostic);
 	}
 
-	let pattern1 = /\b(if|loop|while|elif)({| {)/g;
+	let pattern1 = /\b(if|loop|while|elif)({| {)/gm;
 	let m1: RegExpExecArray | null;
 	while ((m1 = pattern1.exec(text)) && problems < settings.maxNumberOfProblems) {
 		problems++;
@@ -172,7 +172,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 		diagnostics.push(diagnostic);
 	}
 
-	let pattern2 = /\bfunc({| {)/g;
+	let pattern2 = /\bfunc({| {)/gm;
 	let m2: RegExpExecArray | null;
 	while ((m2 = pattern2.exec(text)) && problems < settings.maxNumberOfProblems) {
 		problems++;
@@ -188,7 +188,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 		diagnostics.push(diagnostic);
 	}
 
-	let pattern3 = /\b(goto|ret|input|print|inc|label)(?! \S|\S)/g;
+	let pattern3 = /\b(goto|ret|input|print|inc|label)(?! \S|\S)/gm;
 	let m3: RegExpExecArray | null;
 	while ((m3 = pattern3.exec(text)) && problems < settings.maxNumberOfProblems) {
 		problems++;
@@ -203,7 +203,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 		};
 		diagnostics.push(diagnostic);
 	}
-	/* let pattern4 = /(?<!{)if/g;
+	/* let pattern4 = /(?<!{)if/gm;
 	let m4: RegExpExecArray | null;
 	while ((m4 = pattern4.exec(text)) && problems < settings.maxNumberOfProblems) {
 		problems++;
@@ -218,7 +218,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 		};
 		diagnostics.push(diagnostic);
 	} */
-	let pattern5 = /string [a-z]* = (?!")/g;
+	let pattern5 = /^string [a-z]* = (?!")/gm;
 	let m5: RegExpExecArray | null;
 	while ((m5 = pattern5.exec(text)) && problems < settings.maxNumberOfProblems) {
 		problems++;
@@ -233,7 +233,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 		};
 		diagnostics.push(diagnostic);
 	}
-	let pattern6 = /(int|float) [a-z]* =(\s|\D)*$/g;
+	let pattern6 = /^(int|float) [a-z]* =(\s|\D)*$/gm;
 	let m6: RegExpExecArray | null;
 	while ((m6 = pattern6.exec(text)) && problems < settings.maxNumberOfProblems) {
 		problems++;
@@ -243,12 +243,12 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 				start: textDocument.positionAt(m6.index),
 				end: textDocument.positionAt(m6.index + m6[0].length)
 			},
-			message: `Expected an int after =`,
+			message: `Expected a number after =`,
 			source: 'rosemary'
 		};
 		diagnostics.push(diagnostic);
 	}
-	let pattern7 = /bool [a-z]* =(\s|\D)(?!true|false)/g;
+	let pattern7 = /^bool [a-z]* =(\s|\D)(?!true|false)/gm;
 	let m7: RegExpExecArray | null;
 	while ((m7 = pattern7.exec(text)) && problems < settings.maxNumberOfProblems) {
 		problems++;
@@ -263,7 +263,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 		};
 		diagnostics.push(diagnostic);
 	}
-	/* let pattern8 = /bool [a-z]* =( |)(?!true|false)/g;
+	/* let pattern8 = /bool [a-z]* =( |)(?!true|false)/gm;
 	let m8: RegExpExecArray | null;
 	while ((m8 = pattern8.exec(text)) && problems < settings.maxNumberOfProblems) {
 		problems++;
@@ -278,7 +278,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 		};
 		diagnostics.push(diagnostic);
 	} */
-	let pattern9 = /extern(?! ")/g;
+	let pattern9 = /extern(?! ")/gm;
 	let m9: RegExpExecArray | null;
 	while ((m9 = pattern9.exec(text)) && problems < settings.maxNumberOfProblems) {
 		problems++;
@@ -293,7 +293,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 		};
 		diagnostics.push(diagnostic);
 	}
-	/* let pattern10 = /^[^\"]*(\"[^\"]*\"[^\"]*)*(\")[^\"]*$/g;
+	/* let pattern10 = /^[^\"]*(\"[^\"]*\"[^\"]*)*(\")[^\"]*$/gm;
 	let m10: RegExpExecArray | null;
 	while ((m10 = pattern10.exec(text)) && problems < settings.maxNumberOfProblems) {
 		problems++;
@@ -323,7 +323,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 		};
 		diagnostics.push(diagnostic);
 	}
-	/* let pattern12 = /(?<!int |bool |float |string |if |elif )\S\s?=/g;
+	/* let pattern12 = /(?<!int |bool |float |string |if |elif )\S\s?=/gm;
 	let m12: RegExpExecArray | null;
 	while ((m12 = pattern12.exec(text)) && problems < settings.maxNumberOfProblems) {
 		problems++;
